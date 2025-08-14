@@ -5,11 +5,12 @@ from typing import List, Optional
 from datetime import datetime
 
 from app.config import settings
-from app.database import get_db, Email, create_tables
+from app.database import get_db, Email, JiraIssue, create_tables
 from app.models import EmailResponse, EmailListResponse, HealthCheck
 from app.scheduler import email_scheduler
 from app.email_service import EmailService
 from app.ml_classifier import EmailClassifier
+from app.jira_service import JiraService
 
 # Create FastAPI app
 app = FastAPI(
@@ -30,6 +31,7 @@ app.add_middleware(
 # Initialize services
 email_service = EmailService()
 classifier = EmailClassifier()
+jira_service = JiraService()
 
 @app.on_event("startup")
 async def startup_event():
@@ -182,6 +184,37 @@ async def stop_scheduler():
         return {"message": "Scheduler stopped successfully", "timestamp": datetime.utcnow().isoformat()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error stopping scheduler: {str(e)}")
+
+@app.post("/integrations/jira/send-problems")
+async def send_problem_emails_to_jira(limit: int = Query(50, ge=1, le=500), db: Session = Depends(get_db)):
+    """Create Jira issues for problem emails that don't yet have a Jira key."""
+    if not jira_service.is_configured():
+        raise HTTPException(status_code=400, detail="Jira is not configured")
+
+    # Fetch problem emails that do not yet have a Jira issue linked
+    subq = db.query(JiraIssue.email_id).subquery()
+    emails = db.query(Email).filter(
+        Email.is_problem == True,
+        ~Email.id.in_(subq)
+    ).order_by(Email.received_date.desc()).limit(limit).all()
+    if not emails:
+        return {"message": "No problem emails pending for Jira", "created": 0}
+
+    created = 0
+    failures = []
+    for e in emails:
+        summary = f"{e.subject} + {e.sender}"
+        description = e.content or "(no content)"
+        ok, key, err = await jira_service.create_issue(summary=summary[:255], description=description)
+        if ok and key:
+            db_issue = JiraIssue(email_id=e.id, issue_key=key)
+            db.add(db_issue)
+            created += 1
+        else:
+            failures.append({"email_id": e.email_id, "error": err})
+
+    db.commit()
+    return {"message": "Jira issue creation completed", "created": created, "failed": failures}
 
 @app.post("/emails/generate-sample")
 async def generate_sample_emails(count: int = Query(10, ge=1, le=50, description="Number of sample emails to generate")):

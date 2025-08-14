@@ -1,6 +1,6 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, Boolean, Float
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, Boolean, Float, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
 from datetime import datetime
 from app.config import settings
 
@@ -35,6 +35,21 @@ class Email(Base):
     confidence_score = Column(Float, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # Relationships
+    jira_issues = relationship("JiraIssue", back_populates="email", cascade="all, delete-orphan")
+
+
+class JiraIssue(Base):
+    __tablename__ = "jira_issues"
+
+    id = Column(Integer, primary_key=True, index=True)
+    email_id = Column(Integer, ForeignKey("emails.id"), nullable=False, index=True)
+    issue_key = Column(String, unique=True, index=True, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    # Relationship back to Email
+    email = relationship("Email", back_populates="jira_issues")
 
 # Create tables
 def create_tables():

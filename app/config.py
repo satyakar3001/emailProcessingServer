@@ -39,4 +39,11 @@ class Settings:
     # Backups
     BACKUP_DIR: str = os.getenv("BACKUP_DIR", "./emails_backup")
 
+    # Jira Integration
+    JIRA_BASE_URL: Optional[str] = os.getenv("JIRA_BASE_URL")
+    JIRA_EMAIL: Optional[str] = os.getenv("JIRA_EMAIL")
+    JIRA_API_TOKEN: Optional[str] = os.getenv("JIRA_API_TOKEN")
+    JIRA_PROJECT_KEY: Optional[str] = os.getenv("JIRA_PROJECT_KEY")
+    JIRA_ISSUE_TYPE: str = os.getenv("JIRA_ISSUE_TYPE", "Task")
+
 settings = Settings()
