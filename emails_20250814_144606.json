@@ -1,0 +1,42 @@
+[
+  {
+    "email_id": "sample_f2e13bb3",
+    "sender": "support@company.com",
+    "recipient": "user@company.com",
+    "subject": "Your account has been suspended due to suspicious activity",
+    "content": "We detected unusual login attempts from multiple locations. Your account has been temporarily suspended for security reasons. Please contact our support team immediately.",
+    "received_date": "2025-08-14T14:46:06.395460"
+  },
+  {
+    "email_id": "sample_b5cc9bc3",
+    "sender": "billing@company.com",
+    "recipient": "user@company.com",
+    "subject": "Payment failed - Action required",
+    "content": "Your recent payment of $99.99 has failed. Please update your payment method to avoid service interruption.",
+    "received_date": "2025-08-14T12:46:06.395496"
+  },
+  {
+    "email_id": "sample_2f8aaa3c",
+    "sender": "tech@company.com",
+    "recipient": "user@company.com",
+    "subject": "System maintenance scheduled for tonight",
+    "content": "We will be performing scheduled maintenance tonight from 2-4 AM EST. Some services may be temporarily unavailable.",
+    "received_date": "2025-08-14T10:46:06.395504"
+  },
+  {
+    "email_id": "sample_7b2bc0e2",
+    "sender": "noreply@company.com",
+    "recipient": "user@company.com",
+    "subject": "Welcome to our platform!",
+    "content": "Thank you for joining our platform. We're excited to have you on board!",
+    "received_date": "2025-08-14T08:46:06.395509"
+  },
+  {
+    "email_id": "sample_57190900",
+    "sender": "alerts@company.com",
+    "recipient": "user@company.com",
+    "subject": "Service outage detected in US East region",
+    "content": "We're experiencing technical difficulties in our US East region. Our team is working to resolve this issue as quickly as possible.",
+    "received_date": "2025-08-14T06:46:06.395513"
+  }
+]

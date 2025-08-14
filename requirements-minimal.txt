@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+apscheduler
+psycopg2-binary
+sqlalchemy
+pydantic
+python-multipart
+httpx
+exchangelib
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+transformers
+sentence_transformers
