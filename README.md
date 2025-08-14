@@ -225,9 +225,6 @@ LOG_LEVEL=DEBUG
 LOG_FILE=./logs/app.log
 ```
 
-## License
-
-This project is licensed under the MIT License.
 
 ## Contributing
 
