@@ -75,7 +75,8 @@ class EmailClassifier:
             combined_text = f"Subject: {subject}\n\nContent: {content}"
             
             # First, classify as problem vs information
-            problem_result = self.problem_classifier(combined_text[:512])  # Limit text length
+            problem_result = self.problem_classifier(combined_text[:512]) # Limit text length
+            # print("problem_result:", problem_result)
             is_problem = problem_result[0]['label'] == 'LABEL_1'  # Assuming LABEL_1 is problem
             problem_confidence = problem_result[0]['score']
             
