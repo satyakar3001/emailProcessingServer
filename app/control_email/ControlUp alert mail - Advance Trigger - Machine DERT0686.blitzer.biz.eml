@@ -1,0 +1,212 @@
+Received: from SG2PR01MB4146.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:1c5::13) by SEL0PFB9D37C6AA.apcprd01.prod.exchangelabs.com with
+ HTTPS; Wed, 3 Sep 2025 09:17:55 +0000
+Received: from AS9PR06CA0398.eurprd06.prod.outlook.com (2603:10a6:20b:461::17)
+ by SG2PR01MB4146.apcprd01.prod.exchangelabs.com (2603:1096:4:1c5::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.21; Wed, 3 Sep
+ 2025 09:17:54 +0000
+Received: from AM4PEPF00027A64.eurprd04.prod.outlook.com
+ (2603:10a6:20b:461:cafe::f0) by AS9PR06CA0398.outlook.office365.com
+ (2603:10a6:20b:461::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9073.27 via Frontend Transport; Wed,
+ 3 Sep 2025 09:17:52 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.216.45)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.216.45 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.216.45; helo=mail-pj1-f45.google.com; pr=C
+Received: from mail-pj1-f45.google.com (209.85.216.45) by
+ AM4PEPF00027A64.mail.protection.outlook.com (10.167.16.75) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.14
+ via Frontend Transport; Wed, 3 Sep 2025 09:17:52 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:2C74AF2B751A38265DB23D48BF4E9A37C58A9294DF55D228D87CAB03225906A9;UpperCasedChecksum:5E8688DFCB7A5CAFE177A6E1F570822DEEA28670B94A753EE9078CACA4B918BC;SizeAsReceived:2824;Count:15
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-32326e5f0bfso5122667a91.3
+        for <satyakar3001@outlook.com>; Wed, 03 Sep 2025 02:17:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756891071; x=1757495871; darn=outlook.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/ZvrA0Z8bswb+y66X2l2T2xAQThJCw7sXWfHspeReO4=;
+        b=PVz3wURes9ZWuhthGZoZw8i01gIpnediZCeZNxh3tSX9aSDG34WJ31HUvxfGAxGRIG
+         5BuiSg1h7oTvZP7xTRpjcsEhUiHNh/ATJY4NPpD3TMsglNuLUv20fBFrz5GDBmFP0ss+
+         JL+GY8msc4K5UWh1DpewJLFhCHXGFZLdt4hB8+ZL7iiqqimcgg6vIcVt858NEE5fCnUX
+         +1axDC027zXQuhL3X4/tS6BovhYiHK9WsGHnlKAyU9Gbeowr1mKbDTVi18fUDAESxdQm
+         aPtchbKQ2IqMRN+5TVWVV16pNaOhg2fkbCFJcWLBAEc87ZVRIaDlAyBDwEpM+rpys+bH
+         SFOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756891071; x=1757495871;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/ZvrA0Z8bswb+y66X2l2T2xAQThJCw7sXWfHspeReO4=;
+        b=EdAlTtzVKWOYYndN+Nw2IrlM1PB+m9VDdk+9PJApZbDuZWGeVa3CmQmCYxEGvcqNZi
+         JAkF+ke+NnO8VBvPssLtUIrqtb+vo6ldlcdmoNZQvNbN+VfBhXzDYs60beuOzL/Exf6p
+         Vzco6tTkwkG1qxYRzuF6CT1Uce2NRavUUikbEvWDQq030z33Lf4f+8tbg20CfkdIt/eD
+         U3mP+BBLm8SrZ2yfPD/Hd3aIlfFmrDDZkx0s3iwgzzEa+YM5ctmtoApuGJc5wiKu8Auj
+         GORRGmX/Hbtb1MEcfJ1KzIWoUYVTmgVKtMll2OafSJzKEVXFexMZSeFKLYKAZI/aJKsO
+         MrAQ==
+X-Gm-Message-State: AOJu0YziVzx/jZYDa/XUuWa0zQjKIt+JzAgwiZhaGFKRIhGVqkAbjyBF
+	0M/Dfq2PVMW5fyZt9ewVgTOAp1lB9U5SpknoteBjPepOrj3bJdKTI+6IfhOC1u7mcgLdlV7VP/E
+	u0NhcFmv6iWt1h/w51NFRnU/C9sdNN5mXX1v4
+X-Gm-Gg: ASbGncsx6uMSXrh3MYtiFhMaVkg3J+jfPki9nmoBa+N09paNtvEn7JImcK1df6W5nar
+	4HDKi3nxEEjOmClYlG6P0esXuKUOd/bdxU59Mr6JamXkWpV/5QhU3OY5DCv6H8NUR3Jz+bBM97G
+	tysVylqUQQ5C74ydexMJHuJpoxNE7AGRRYrqM2qFFEtRCrA5XizzyOXTMary7klPvJ80wldb+DH
+	8s9kH1w+R8wAHm06gfwPoBwGbfRAFzyT5opbsxGQg==
+X-Google-Smtp-Source: AGHT+IGsj01XcQrLYStACF//fN5eFIl4v8EvOaHtbLA7oAQvYpvLDM7GEH0QsIBq0KR6NHjecvpflDBdkWZMeeQOwV8=
+X-Received: by 2002:a17:90b:1c12:b0:329:e9da:35dd with SMTP id
+ 98e67ed59e1d1-329e9da37c8mr5417244a91.27.1756891070907; Wed, 03 Sep 2025
+ 02:17:50 -0700 (PDT)
+From: Shekhar Satyakar <satyakar3001@gmail.com>
+Date: Wed, 3 Sep 2025 14:47:38 +0530
+X-Gm-Features: Ac12FXxn4PhZgisFARiHoasMXHNOTHS6mH59HwUR67Yl05FPZBivjRfEMasHhPY
+Message-ID: <CAMXCKaPQGJwCj+3BUG9HiFAGmquwLuMS=0RzEJW6VHdHdqDRPA@mail.gmail.com>
+Subject: ControlUp alert mail - Advance Trigger - Machine DERT0686.blitzer.biz
+To: satyakar3001@outlook.com
+Content-Type: multipart/alternative; boundary="00000000000030c882063de21457"
+X-IncomingHeaderCount: 15
+Return-Path: satyakar3001@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 03 Sep 2025 09:17:52.8980
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 07d9eab1-8ec8-44a9-e7d3-08ddeacac2cc
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM4PEPF00027A64:EE_|SG2PR01MB4146:EE_|SEL0PFB9D37C6AA:EE_
+X-MS-Exchange-Organization-AuthSource: AM4PEPF00027A64.eurprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/3/2025 9:12:55 AM
+X-MS-Office365-Filtering-Correlation-Id: 07d9eab1-8ec8-44a9-e7d3-08ddeacac2cc
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.216.45
+X-SID-PRA: SATYAKAR3001@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|58200799018|13020799006|2700799029|970799057|2100799027|461199028|47200799021|9020799016|16125499006|3412199025|440099028|26104999006|17072799003|1370799030|1360799030|1380799030;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 09:17:52.8872
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07d9eab1-8ec8-44a9-e7d3-08ddeacac2cc
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A64.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR01MB4146
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.9263706
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9073.026
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9575002)(10195002)(9320005)(120001);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Zm44eUpUR3hiQ0hEQ2FsZjJ2cjlRbGJtV0pMZ3JLbHJsRzh0OENuVnMyQTdH?=
+ =?utf-8?B?Szd5SmNLUGphWElXTVNsTUFhVUxCSUI5RU5wOHZrcFhGMzE3bjh2OVBYTmxV?=
+ =?utf-8?B?WWhJWkFzcndacnBpUlB1WjdhUzY1REdqcjRoeHJpcG96WEhQY3VQMDlGdmdX?=
+ =?utf-8?B?Wk1FNG9sK05JaE9wZ21NZWZkL0FKOTQydXQvbFM1M2hTVys0ODd5VzVWSXl3?=
+ =?utf-8?B?VDljSC80dDU1UzRmaDVZTDBQV1QySVF1TVhGYVpOTFNYZGlidWNhdXZuZUdp?=
+ =?utf-8?B?R0pKc2ZER0MxNGI3WitrQTRQZHUzUUYxakI3U05zY2pPTUM4WXdMNHlLUW9p?=
+ =?utf-8?B?K05pcnhBSjljZVF3aFZHL1lWaFhtdkFwcU9xekd3STdReXNXbkFQSFJETWp1?=
+ =?utf-8?B?Y3JCanA0S2g1VlI0VEx4OCtIWUd3c2RmN1FHQlgzZitUTzgvY01KSmd1amdC?=
+ =?utf-8?B?ejZFQktoVVRwODVzZ281eDlxbitYTjJjTGVkU1A5RTQ5K3c0WnNYMVJYekRB?=
+ =?utf-8?B?TTU4QmJhUEJibTNPejNlQXJLTXN6N1hhKzVZSnVyOFVzR0U2Wlh2OUdTR1Fr?=
+ =?utf-8?B?Z1VTY2dLdVF3bGdDOGYwWStvV240OElwR2E3bURZWjBvU1JYT0hDbVB6MklU?=
+ =?utf-8?B?Zk85T0NiK2dmRUhPS3BkWWlTMXR1YkNzenBRMjdCb21KRGNBT3JoM3d1WDh6?=
+ =?utf-8?B?SHVUOVh5TThMTkJBMHNBc2xEcjl4NWNoNDNOMUpqVUppNkhvemgvNWVla0do?=
+ =?utf-8?B?YTNFWXdwbHdKazhrTmlFamNjcEljcGU1STZjN2JSam5MNS9iZnQvZllodzZS?=
+ =?utf-8?B?bFpheHk3dzJlSjVQRHZLTUpkenBDMURZUlIzdkxSNklxdDJMUEkyZzZLSThQ?=
+ =?utf-8?B?N2lsQXI2Z29Bem9DR0dhOXdMVys0VHZLQWZHZERkU2lCLzVNdE9HbkhDYnZB?=
+ =?utf-8?B?T2t3clZNMktGcldZdHFsa3ZpN1U1bVIvYkZDZ2w1RGZYNG5zQnVIREc4UXdI?=
+ =?utf-8?B?N1pueWMveFZDY3BUczd3OEtjaE1NdUxNeXNjZEVtSzV6czV4M3VRTHdna054?=
+ =?utf-8?B?YVgzUHpkUDNVY1g4U2Y0QXJuT1A3TjFaVjc0dDhrSEVDOGRiTk8zaGk5ZTZO?=
+ =?utf-8?B?ekJ3S1ArTHVJemxrSWZZaWtQbFZseGkrM3ZiQ0l0M1BUa2tuUVJNVTgzZElI?=
+ =?utf-8?B?SVB3eUJjWWRGczI0aGlzLzZVT09haC8zK0FLbXBFWHlBSDJqeEVFM3dwWnJW?=
+ =?utf-8?B?VHhENVNuT1JFUW1IbkZhMVhBSFJDT1U0SDd0dmhGOUpldXdvWW9ZMXo5YXNj?=
+ =?utf-8?B?eUVoNUo4RmRPdzZIQkNIWWE3aEJLYmQ0eTM4WDhVV0RLM2tYRDRvaVA2WEh1?=
+ =?utf-8?B?MmxhYWNQbGlab09xL0ZkNy9STTQ5SVBOdFBsQzZSajhoWlRmeXlpMHgyVUhG?=
+ =?utf-8?B?NTFXT3pkL1B3VzF6SHZ1QWR2bUtBSjF6MlRSQXFMdDY4elZRL3lwN0JVVGs4?=
+ =?utf-8?B?NDVDbTlKS052WkpsdDVEUTVZSkhqTlpkR2VCTFRWN2JMWU02VG1HZnhwSWJ3?=
+ =?utf-8?B?SlJaNHhBTHVEdG82ZTRReXBRbDMzaWlMR1VXTUMwQXM3ZFhZVmdyNWF4V2pJ?=
+ =?utf-8?B?a0tmK1pCWDFaV0p3U0dYc040a3BERzdtZUxwV0xWYzA4ZFd5bDBjZXllYUcw?=
+ =?utf-8?B?YmxqYmJtaWdpU1hnck00THNXTFpNK1EwZGlNVmpYTm1DdUhaZGVzTC9McG9o?=
+ =?utf-8?B?MHRmVXBwNVNKZThiTTVhc0Z3YXRJdVdrbXJ3OU9iRW5OSmNCSm00dlBJSjhM?=
+ =?utf-8?B?aThJMmhEeGJnWTY5T0ZKOUVWTmU4RkxtcjRDTmlZeU5Oa012M3JCVlRXdWQr?=
+ =?utf-8?B?Rlp6bDhGRFovUGVNMUppeUliR0lBanNZdVY2NHJHQmtNYW9KeXZYaFNmTTdH?=
+ =?utf-8?B?ODlBUlk2MHRFbU1ZbzVmWHpkMUY2UEtzell1TldWNFVrZTljZDByT1B0YS8z?=
+ =?utf-8?B?M1FhWC9pR2VDRzdtOEhVQ1U5b2c1V05TMkxpd045U2VIU3EwOElubWdvQkwv?=
+ =?utf-8?B?THYvMXY2T3JMQ01sYTd1UXNHbUdrVXAvcE9zSDRQYmpyWlRJbDJnSEZQUlNZ?=
+ =?utf-8?B?Q2lCTXovTE5GOTQycE1KbkUzRldPS0dtNldibGJMdGk5S3lVRnFuTjJRdWFR?=
+ =?utf-8?B?K2hJNFRVVmFwYUxXQlBON0V3ZVJUUnpucHBqMnplNC9DRW9BeTNlOTZTcVRJ?=
+ =?utf-8?B?TEYrU29oSXhURUdZTkZYRVh3QU1YYldnT3ZOMTUrZXEwNm1id3pwUFNRTHg3?=
+ =?utf-8?B?WlBSWmMyMFBrQzh1SzRNOUZ5ZnkxNFEzN2REZkFsZjZidFZ6VXk3Nk44Ukp5?=
+ =?utf-8?B?OExBUkswVEpoeXBRTjZyRFVuaWxzTTVoTE94cHoxeWhGSlVJQ2hJQTdCZE1Y?=
+ =?utf-8?B?T25DSVduVUExMUxMMjVEVHU4TWhDRUlUK1d5SVRWd0RKeXIycHZwd3crV0pD?=
+ =?utf-8?B?THBSRFNQWTlDbXM2ejJQSU9OYkZpS0c4R3FaOXlrdXRTTkxBOWY5KzB3Ymky?=
+ =?utf-8?Q?+w5hyGqdk=3D?=
+MIME-Version: 1.0
+
+--00000000000030c882063de21457
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+This is an automated alert from ControlUp, which you requested to receive
+using an incident trigger.
+
+The monitored resource has matched the conditions specified below.
+
+Organization Name: Bitzer
+
+Folder name: bitzer\citrix\vda\rot_ts\rol
+
+Reported by: ControlUp Monitor Service on DEROT01082
+
+Trigger name: CITRIX Machines. Disk Queue greater than or equal t
+
+Resource name: DEROT04414
+
+Resource type: Computers
+
+Stress Level: Advanced
+
+Incident timestamp (UTC +2 W. Europe Standard Time): 8/28/2025 8:00:09 AM
+
+Columns involved in this incident:
+
+Column: Disk Que=D1=87=D0=B5
+
+Value changed from 0.8 to 1.3
+
+On (UTC +2 W. Europe Standard Time) 8/28/2025 7:55:09 AM
+
+Threshold crossed 1
+
+--00000000000030c882063de21457
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"auto"><div><br></div><div><br></div><div data-smartmail=3D"gmail_=
+signature"><div dir=3D"ltr"><div dir=3D"ltr">This is an automated alert fro=
+m ControlUp, which you requested to receive using an incident trigger.</div=
+><div dir=3D"ltr"><br></div><div dir=3D"ltr">The monitored resource has mat=
+ched the conditions specified below.</div><div dir=3D"ltr"><br></div><div d=
+ir=3D"ltr">Organization Name: Bitzer</div><div dir=3D"ltr"><br></div><div d=
+ir=3D"ltr">Folder name: bitzer\citrix\vda\rot_ts\rol</div><div dir=3D"ltr">=
+<br></div><div dir=3D"ltr">Reported by: ControlUp Monitor Service on DEROT0=
+1082</div><div dir=3D"ltr"><br></div><div dir=3D"ltr">Trigger name: CITRIX =
+Machines. Disk Queue greater than or equal t</div><div dir=3D"ltr"><br></di=
+v><div dir=3D"ltr">Resource name: DEROT04414</div><div dir=3D"ltr"><br></di=
+v><div dir=3D"ltr">Resource type: Computers</div><div dir=3D"ltr"><br></div=
+><div dir=3D"ltr">Stress Level Advanced</div><div dir=3D"ltr"><br></div><di=
+v dir=3D"ltr">Incident timestamp (UTC +2 W. Europe Standard Time) 8/28/2025=
+ 8:00:09 AM</div><div dir=3D"ltr"><br></div><div dir=3D"ltr">Columns involv=
+ed in this incident</div><div dir=3D"ltr"><br></div><div dir=3D"ltr">Column=
+. Disk Que=D1=87=D0=B5</div><div dir=3D"ltr"><br></div><div dir=3D"ltr">Val=
+ue changed from 0.8 to 1.3</div><div dir=3D"ltr"><br></div><div dir=3D"ltr"=
+>On (UTC +2 W. Europe Standard Time) 8/28/2025 7:55:09 AM</div><div dir=3D"=
+ltr"><br></div><div dir=3D"ltr">Threshold crossed 1</div></div></div></div>
+
+--00000000000030c882063de21457--
