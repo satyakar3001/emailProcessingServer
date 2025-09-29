@@ -1,0 +1,191 @@
+Received: from KUXPR01MB7789.apcprd01.prod.exchangelabs.com
+ (2603:1096:d10:42::11) by SEL0PFB9D37C6AA.apcprd01.prod.exchangelabs.com with
+ HTTPS; Wed, 3 Sep 2025 09:21:26 +0000
+Received: from SJ2PR07CA0013.namprd07.prod.outlook.com (2603:10b6:a03:505::15)
+ by KUXPR01MB7789.apcprd01.prod.exchangelabs.com (2603:1096:d10:42::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Wed, 3 Sep
+ 2025 09:21:24 +0000
+Received: from SJ5PEPF000001EF.namprd05.prod.outlook.com
+ (2603:10b6:a03:505:cafe::75) by SJ2PR07CA0013.outlook.office365.com
+ (2603:10b6:a03:505::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.17 via Frontend Transport; Wed,
+ 3 Sep 2025 09:21:22 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.216.42)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.216.42 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.216.42; helo=mail-pj1-f42.google.com; pr=C
+Received: from mail-pj1-f42.google.com (209.85.216.42) by
+ SJ5PEPF000001EF.mail.protection.outlook.com (10.167.242.203) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.14
+ via Frontend Transport; Wed, 3 Sep 2025 09:21:22 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:F49C2CCE8B3F8B96232FD03DB5440B45B4B13A03219C55197A552C5591C6CA4C;UpperCasedChecksum:B53976F66D1595C6B27C04C8E4E11CD39B10B1BE987E4D4CDB642595561F4F90;SizeAsReceived:2864;Count:15
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3280264a6e8so3321998a91.3
+        for <satyakar3001@outlook.com>; Wed, 03 Sep 2025 02:21:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756891282; x=1757496082; darn=outlook.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=k+QMKznGtdXAJ6uX/iLdwsbQoXZ1S2h/Z2n9Ax609Ao=;
+        b=I/dk1UeCjwzRRjBgkYfV2TeSBOF/4XjEbUdwMqhSL+8DyP3CRjhlFh92vAFiQcPVcF
+         BNkh+r7eYJMfq389QSFrx9XPe9aJr/wmf9YI98ANEYKFPhc5D9c4QVLwZHSH1pHDS3XG
+         P10p4o1gyeEA8vVaoCN6XfqAohgharKatTHEKcoCEHRxNAfJh3gdcSDLnxFR46H+1o4Z
+         EilU3YY0r0zB0w3LbRloZblzbyP50Ew9fn2dx5ITGulYLRXppbgUJbOlqh6y+EHXr76V
+         hzfnKcEVZSOhHQ/iq4k1UKvdHh0XCPNX+FBRvE2hWpAevVRKJIsp7OwgI4S2YIu1uex0
+         6s1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756891282; x=1757496082;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=k+QMKznGtdXAJ6uX/iLdwsbQoXZ1S2h/Z2n9Ax609Ao=;
+        b=AhPcviLXhSAefIMFSUiyi/JaB5ThCGxjo73DsKa1rtLUANxpgIjRBADv3hdxJ8rHSw
+         dL49ii7m9G0mhEqr09aTbUml4ezzhnwXRmRYlB7jAzRq82F/ubXjFvmmSQQC+OEX+u2o
+         hcfyx4CbZuOqAPYl2J8TAwf/UfPe+1QtBqpWDj2xU02tNrHFptYdcmrZ/28iniHi2wSo
+         8Oc4GswjEbVOylEKxRUFa9ACBVA4RDVChpUgOAYxYagIgZ/JC4qBC5wygdbFCaXUWmaP
+         0UqQ9ID4ZeF3moxo4JNEZMGfZ0NC6dquTkeQgvBVYG3cAnd+h8jiFySuobi1YURd67LT
+         f6Wg==
+X-Gm-Message-State: AOJu0YyQEnfOZ7pGSQ3sYtyPCAGHg5QnyxoBnxg1AXrRIEHB7KDb6qgU
+	ltyPEjzqSpsn+Ar9tTvB/IRnmyZTvO4xpRME73mteXs1epuFh553oTB7AVrvan+6yKWafRCb3jz
+	jYocUKBlG/FfoaO4ZVzYcb765MsP2Uk/EnFHY
+X-Gm-Gg: ASbGncvf8OZHsz7FaPsDrQdX9n6zxNIBmkdhM1HoiR6e8P73HSNvwCKEtfTEISIgFYp
+	585R2Pbl8tPNuFoBE1P2uy9R97JYwRcc7a+hcHlxio6kLxM2edvWpB5j0KdDX2CQAJqf7cNRtcq
+	PMYE6MVDTRzYp4kF8QrUGjgjqDRMQiEiRT/QcSqTNqwkf91SASNVJjMIbn99eVxj3FA0368+bFo
+	YPkU/Vhsy3WogHXXI95UZIsRb0n+k9Pr/nHa9JCmw==
+X-Google-Smtp-Source: AGHT+IEjsnmKpKaLaLJy0txNaVQ3Uzaxko4xkC+QUIQZlvf9dHOCQzX8d3gltko0bQ0hapYnmKSW9t5eadQDWK6xJZc=
+X-Received: by 2002:a17:90b:530b:b0:32b:5195:d12c with SMTP id
+ 98e67ed59e1d1-32b5195d3d4mr3520569a91.22.1756891282298; Wed, 03 Sep 2025
+ 02:21:22 -0700 (PDT)
+From: Shekhar Satyakar <satyakar3001@gmail.com>
+Date: Wed, 3 Sep 2025 14:51:10 +0530
+X-Gm-Features: Ac12FXy7PkAAk-7xTw5p1oMgQZUF9SZOrv2U6_3quESLK4codB1ETC8AqO9aU2s
+Message-ID: <CAMXCKaMMu2+TUx9m_E9ov16s7GPyCHSeemOKcPAFSbK0DF67Rw@mail.gmail.com>
+Subject: ControlUp alert mail - Machine down - Machine DERTOT04430.blitzer.biz
+ is down (ControlUp Agent Unreachable)
+To: satyakar3001@outlook.com
+Content-Type: multipart/alternative; boundary="000000000000ca5b94063de2204f"
+X-IncomingHeaderCount: 15
+Return-Path: satyakar3001@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 03 Sep 2025 09:21:22.9579
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 7f15fd5d-b5ac-4425-8302-08ddeacb4001
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EF:EE_|KUXPR01MB7789:EE_|SEL0PFB9D37C6AA:EE_
+X-MS-Exchange-Organization-AuthSource: SJ5PEPF000001EF.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/3/2025 9:21:16 AM
+X-MS-Office365-Filtering-Correlation-Id: 7f15fd5d-b5ac-4425-8302-08ddeacb4001
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.216.42
+X-SID-PRA: SATYAKAR3001@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|461199028|9020799016|47200799021|58200799018|13020799006|2100799027|1380799030|1360799030|1370799030|16125499006|440099028|3412199025|17072799003|26104999006;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 09:21:22.9170
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f15fd5d-b5ac-4425-8302-08ddeacb4001
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EF.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR01MB7789
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.6674378
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9073.026
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90010023)(91010020)(91040095)(9050020)(9100341)(944500132)(4810010)(4910033)(9575002)(10195002)(9320005)(120001);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?emRIb0RGenhzSUFJWmw0M1Q4cVVCck5XTUtLL0VVMmcxdE5sSXUxbUpGZEtG?=
+ =?utf-8?B?Yjg4cEZNcmpFVlRrMUVyZThZUTNqUjFyOTVybjk5TmxqeG1tY2JVdGZoQ2xM?=
+ =?utf-8?B?cmlGdGxDY2REckMzaU4wTldoZVBsQkRxZWhORzlUcllCUG44TG5qcjlSSXpB?=
+ =?utf-8?B?b0VBV0tTcTMzaHFCKzZtU2JheDRHbGdySURSNloybDcwL1I3NXFKNEZteWRm?=
+ =?utf-8?B?R3AvMFNzdmhWb211T1ZjbmQvcnF4Kytwem51UkdoZDhvV3JUYUdtL2E1anVi?=
+ =?utf-8?B?YUU0TDVrZWh1YzRTaDdSanpPM2ZzTHBUaVREK1kvNUZxeGtaNUQyZXBsNitu?=
+ =?utf-8?B?ekRFQnhpdGljM0p6VmI5WkM2WHNydnRwb1h1UXcwMDFmYTBJemNNRHN0R3JE?=
+ =?utf-8?B?U0g0KzdRc3RxbVFpdTFhT0U0UU5nUWNBc3NCU2FxMUtXMDVia0xQd0MxWHU4?=
+ =?utf-8?B?WVgraG84WlZ5UFJ4WStrdDlOWlI0UWRwand5anB6MVY3RzR0dHJSclZLOVk0?=
+ =?utf-8?B?eStJR01ySU5CR0dTMFVJU2FkdTNxbmdHMDJxa2ZnTHpPUmx3UlJKR3dBN0p6?=
+ =?utf-8?B?djFJT3N5dWZsalF3ZG1mWW4rbkdFT01qbjJsN1pNM0Frby9YVUtLbXM0ZVZW?=
+ =?utf-8?B?KzNudkU3djU1MzBkL0tjM3RiUmltdXkzTVgrRFdtdGxub0IrQkxqWno3ZzRk?=
+ =?utf-8?B?Q3ZPdzJRUTN1N1hkcEhGRC9iR2lTWTczYTlyM01CalhvdjkwM2lQRytQaEtU?=
+ =?utf-8?B?TG5seHBJMWhKSzFzWWRLUjMxSjdpb0tQeEdnMGQ0OEF6TXZycWdpSmgxSlNH?=
+ =?utf-8?B?WGdHUHFuSHJrdWpYeHBlUXZsa0I2WjRrYUlJcyt4UGw2akhBelVZbFl4OW5n?=
+ =?utf-8?B?cG5PclFJaHlhdW5sK0V5Z1YrVktoUHdQWnhjdDMxU0pLUVpmN1BrbGE4T29o?=
+ =?utf-8?B?RHp3WGZiaHNiU0hZeUErazNURWtxUGl5Z1dyUU9vWDFVaVpPRFhMN2hUaGtN?=
+ =?utf-8?B?Tis0cFA2ZjlEeU9LQXhxWGFVNFJwWGtteGUzOCtPU0dQSk5HREYwMUtOcjNQ?=
+ =?utf-8?B?RWtYV1BmYnFXaVFmejJMcHpBSURKRERJbm1pVjJ0MnF4b0kyT3NGK2Z0dlhO?=
+ =?utf-8?B?TWZaOVcxTVhpQW5MeC9rZ0tYcnFKZnYwVjlOdlBhRmJNOG5ZZ2YzWGZIOVZt?=
+ =?utf-8?B?MkhnV01YUGd2eTY4czYzZVhENmlzbGRSd3N1aVFqR0cvcFBxczNtdG9jUTc0?=
+ =?utf-8?B?NnEwakVFSVo1ZmdFSzhLRk9NY0toZzF0MzVqdW9YMFNFL2d0WWt2d2JEelBo?=
+ =?utf-8?B?M0d2VldreGp2UTlObkMzSkUzZmVKQ2cxcGgxMFJ1bHpRQWRGMkZTdlc0bXBG?=
+ =?utf-8?B?NVE2M3ZkRzI1b0U3akkxNmdCcDBJdmxmMHVMUE9aOEtXRlJTQ29Kck5xeHFs?=
+ =?utf-8?B?M1hleWxlSWFOaDFjOE9WNXNKVnN5bFJLY0Npam11MnArMjh0NEw5YUYzRHN1?=
+ =?utf-8?B?L3RVT0xFdUhybm1taHZRbVhWWW1yRGJMcUNTZUpHUXZiWHZUWmtCU2VaZG1w?=
+ =?utf-8?B?eVZ5T0FBNVYwRGpvYnBzVTZ3K2Jnb09Tbi95K0s3MmNYemJZdlBlSW4vS09t?=
+ =?utf-8?B?YkQvSisvVWRFZ3BhRmhGcEtGNlVKRGVMR0tlVGI3RmJpWUJrYW9Vc3JpcWt4?=
+ =?utf-8?B?Ui9jQWRidVRUamRCU0NVMXdIQ0s0dHBCZ25UeFpQL1Bza1VsN0tjY3dneDFW?=
+ =?utf-8?B?THBnQnBxSmxzWGRyU2tJdHloNVA4R1FJVCsvV1psUTI4V2F0NTVSVkVXL3JR?=
+ =?utf-8?B?OE5BbTJzRzFCZmQxTnV2WEw4dm91YzJuR25teFNnekVlZ2s0VkZ3aklCUXU2?=
+ =?utf-8?B?Y2tWR1JHWktlcHlSdlBSQzdLLytaeGRSdmxlN1VpNVowa2tjSVQ3TTdPTU9n?=
+ =?utf-8?B?WHVkaDZzeXhPWW15SlBaZHNhWjg4QTVSaUVaZmY0bkhmUEkrUFF0UHJlYVFh?=
+ =?utf-8?B?d1BscDgwZ2d4cVVpNFI3NW5TMXZyUGtFWDBVNGpkeHdxK0JaeXhXQXAydW1I?=
+ =?utf-8?B?TDA3WnVEZW1PeXV6WnZDTm12alJqVkhvbHU0UlY2OEhFZjJmalZHUWpybGlO?=
+ =?utf-8?B?d0RheHc5eDZTK3hOTU83eWk0VG9sbytOWWFIeStNaVRDOC9ZYUdhcFQ2Y29o?=
+ =?utf-8?B?YUtnaVVYQnQ2ektpeWdHUTh1ck5ZT0QzSUZ1T3FIamhXZWVMSjRsRmdGd2Vv?=
+ =?utf-8?B?MEJ4L1Aycjk0MFA1cE50aUFkZHpsREpFeCtyd1k2NFZCZHU0K01XT1B0UFJs?=
+ =?utf-8?B?Tnl5WFdzWUgxLzhTL1ZjZlJMellCaVRCYXZQcThZUGUvK05CMzFZRkZlZ3Qx?=
+ =?utf-8?B?MHpQa00vK0pVZDd0UHZiZ2RKT0JMd3lJYXkrU2RxaU9TUks5ZWhheFFqZ2R6?=
+ =?utf-8?B?SENlYXBNZjVvakdBVk5HckxCdzI2T0FCMWRUZlpTTnk2NG44RFhZUEJybmZI?=
+ =?utf-8?B?ZkZCQmpPQ0N2ZlpCM3VZb3BudEpET0JrYlNMand0MURBPT0=?=
+MIME-Version: 1.0
+
+--000000000000ca5b94063de2204f
+Content-Type: text/plain; charset="UTF-8"
+
+This is an automated alert from ControlUp, which you requested to receive
+using an incident trigger.
+
+One of your managed computers has disconnected from monitoring
+
+Organization name: Bitzer
+
+Trigger name: CITRIX Machines Computer Down ROT TS ROT
+
+Computer name: DEROT04430
+
+Disconnect reason: ControlUp Agent unreachable.
+
+Incident timestamp (UTC +2 W. Europe Standard Time): 8/26/2025 3:42:33 PM
+
+In order to contigure which e-mail alerts you receive, please open
+ControlUp and edit the settings for the bigger specified above
+
+--000000000000ca5b94063de2204f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"auto"><div>This is an automated alert from ControlUp, which you r=
+equested to receive using an incident trigger.</div><div dir=3D"auto"><br><=
+/div><div dir=3D"auto">One of your managed computers has disconnected from =
+monitoring</div><div dir=3D"auto"><br></div><div dir=3D"auto">Organization =
+name: Bitzer</div><div dir=3D"auto"><br></div><div dir=3D"auto">Trigger nam=
+e: CITRIX Machines Computer Down ROT TS ROT</div><div dir=3D"auto"><br></di=
+v><div dir=3D"auto">Computer name DEROT04430</div><div dir=3D"auto"><br></d=
+iv><div dir=3D"auto">Disconnect reason ControlUp Agent unreachable.</div><d=
+iv dir=3D"auto"><br></div><div dir=3D"auto">Incident timestamp (UTC +2 W. E=
+urope Standard Time): 8/26/2025 3:42:33 PM</div><div dir=3D"auto"><br></div=
+><div dir=3D"auto">In order to contigure which e-mail alerts you receive, p=
+lease open ControlUp and edit the settings for the bigger specified above</=
+div></div>
+
+--000000000000ca5b94063de2204f--

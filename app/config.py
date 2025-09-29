@@ -7,7 +7,7 @@ load_dotenv()
 
 class Settings:
     # Database
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://username:password@localhost:5432/email_processor_db")
+    DATABASE_URL: str = os.getenv("DATABASE_URL")
     
     # Email Configuration
     OUTLOOK_EMAIL: Optional[str] = os.getenv("OUTLOOK_EMAIL")
@@ -45,5 +45,8 @@ class Settings:
     JIRA_API_TOKEN: Optional[str] = os.getenv("JIRA_API_TOKEN")
     JIRA_PROJECT_KEY: Optional[str] = os.getenv("JIRA_PROJECT_KEY")
     JIRA_ISSUE_TYPE: str = os.getenv("JIRA_ISSUE_TYPE", "Task")
+
+    # Groq API
+    GROQ_API_KEY: Optional[str] = os.getenv("GROQ_API_KEY")
 
 settings = Settings()

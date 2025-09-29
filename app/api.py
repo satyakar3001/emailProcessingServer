@@ -11,6 +11,7 @@ from app.scheduler import email_scheduler
 from app.email_service import EmailService
 from app.ml_classifier import EmailClassifier
 from app.jira_service import JiraService
+from app.class_chat import Chain
 
 # Create FastAPI app
 app = FastAPI(
@@ -32,6 +33,7 @@ app.add_middleware(
 email_service = EmailService()
 classifier = EmailClassifier()
 jira_service = JiraService()
+chat_service = Chain()
 
 @app.on_event("startup")
 async def startup_event():
@@ -248,6 +250,20 @@ async def classify_email_text(subject: str, content: str):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error classifying email: {str(e)}")
+    
+
+@app.post("/emails/classify-chat")
+async def classify_email_text_chat(subject: str, content: str):
+    """Classify email text using chat model without storing in database"""
+    try:
+        response = chat_service.classify_email_chat(subject, content)
+        
+        return {
+            "response": response,
+            "classification_timestamp": datetime.utcnow().isoformat()
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error classifying email with chat model: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn
